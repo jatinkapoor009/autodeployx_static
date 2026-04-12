@@ -51,7 +51,7 @@ pipeline {
         stage('Manual Approval') {
             steps {
                 timeout(time: 2, unit: 'HOURS') {
-                    input message: 'Staging (8081) check kar liya? Production (80) update karein?', ok: 'Deploy Now'
+                    input message: 'Staging (8081) check it? Production (80) Can We Update Now?', ok: 'Deploy Now'
                 }
             }
         }
@@ -68,12 +68,12 @@ pipeline {
         success {
             mail to: 'jatink9599@gmail.com',
                  subject: "Success: Build #${env.BUILD_NUMBER} of ${env.JOB_NAME}",
-                 body: "Bhai, Mubarak ho! Pipeline successfully khatam ho gayi hai aur Trivy scan bhi pass ho gaya."
+                 body: "Congralutions! Pipeline Successfully Run ."
         }
         failure {
             mail to: 'jatink9599@gmail.com',
                  subject: "Failure: Build #${env.BUILD_NUMBER} of ${env.JOB_NAME}",
-                 body: "Oops! Build fail ho gayi hai. Console check karo: ${env.BUILD_URL}console"
+                 body: "Oops! Build Fail . Check The Console : ${env.BUILD_URL}console"
         }
     } 
 }
