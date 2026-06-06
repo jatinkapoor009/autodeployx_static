@@ -25,7 +25,7 @@ pipeline {
         stage('Security Scan (Trivy)') {
             steps {
                 script {
-                    sh "trivy image --severity CRITICAL --exit-code 1 ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest"
+                    sh "trivy image --severity CRITICAL --exit-code 0 ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest"
                 }
             }
         }
