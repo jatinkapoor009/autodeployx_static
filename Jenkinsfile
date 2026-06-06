@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git url: 'https://github.com/jatinkapoor009/autodeployx.git', branch: 'main'
+               git url: 'https://github.com/jatinkapoor009/autodeployx_static.git', branch: 'main'
             }
         }
 
